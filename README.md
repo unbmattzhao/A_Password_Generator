@@ -1,14 +1,14 @@
 # Application Description
-This is a random password genarator.
+This is a random password genarator created by Matt Zhao with JavaScript.
 
 
 # Link 
 
 #### The final application
-https://unbmattzhao.github.io/PW-generator-w3/
+https://unbmattzhao.github.io/Passgen-w3/
 
 #### The code:
-https://github.com/unbmattzhao/PW-generator-w3
+https://github.com/unbmattzhao/Passgen-w3/
 
 
 # Application Screenshot
@@ -34,8 +34,7 @@ https://github.com/unbmattzhao/PW-generator-w3
 
 
 
-
-
+# APPENDIX The Original User Story
 
 
 # 03 JavaScript: Password Generator
