@@ -1,6 +1,5 @@
 # Application Description
-This is a random password genarator created by Matt Zhao with JavaScript.
-
+This is a random password genarator created by Matt Zhao with JavaScript. Users are allowed to choose password length, what characters to include or not to include.
 
 # Link 
 
