@@ -11,7 +11,7 @@ function writePassword() {
 }
 
 
-// Generate related strings with functions
+// Generate related strings with functions, The ASCII Character Set: https://www.w3schools.com/charsets/ref_html_ascii.asp 
 
 const numberGenerator = function (){
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
@@ -30,8 +30,13 @@ const specialCharGenerator = function (){
   return specialChar[Math.floor(Math.random() * specialChar.length)];
 };
 
-console.log(specialCharGenerator());
-
+// define an object to store all the random strings
+const randomStrings = {
+  numberOb: numberGenerator,
+  lowerCaseCharOb: lowerCaseGenerator,
+  UpperCaseCharOb: UpperCaseGenerator,
+  specialOb: specialCharGenerator
+};
 
 // Select the options page and add open/close actions;
 const options = document.querySelector('.options');
@@ -48,5 +53,29 @@ closeOptions.addEventListener('click', function(){
   options.close();
 });
 
+// get all the related elements from the document, DOM operation.
+
+const passwordF = document.getElementById('password');
+const charNumberF = document.getElementById('charNumber');
+const lowerCaseF = document.getElementById('lowerCase');
+const upperCaseF = document.getElementById('upperCase');
+const numbersE = document.getElementById('numbers');
+const specialsF = document.getElementById('specials');
+const generatePwE = document.getElementById('closeOptions');
 
 
+// // When 
+generatePwE.addEventListener('click', function() {
+  const length = +charNumberF.value;
+  const lowerChecked = lowerCaseF.checked;
+  const uperChecked = upperCaseF.checked;
+  const numberChecked = numbersE.checked;
+  const specialChecked = specialsF.checked;
+
+ passwordF.innerText = pwdGenerator(length, lowerChecked, uperChecked, numberChecked, specialChecked)
+  
+});
+
+
+
+// console.log(password);
