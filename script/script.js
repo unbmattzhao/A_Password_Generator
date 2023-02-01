@@ -38,7 +38,7 @@ const randomStrings = {
   specialOb: specialCharGenerator
 };
 
-// Select the options page and add open/close actions;
+// Select-options page and add open/close actions;
 const options = document.querySelector('.options');
 
 const openOptions = document.querySelector('#openOptions');
@@ -64,7 +64,7 @@ const specialsF = document.getElementById('specials');
 const generatePwE = document.getElementById('closeOptions');
 
 
-// // When 
+// Get user inputs and store them into variables.
 generatePwE.addEventListener('click', function() {
   const length = +charNumberF.value;
   const lowerChecked = lowerCaseF.checked;
@@ -72,7 +72,18 @@ generatePwE.addEventListener('click', function() {
   const numberChecked = numbersE.checked;
   const specialChecked = specialsF.checked;
 
- passwordF.innerText = pwdGenerator(length, lowerChecked, uperChecked, numberChecked, specialChecked)
+// Generate password with the user's inputs using a function.
+// Limit the length of the password string as per the user's seclection
+
+
+function generatePassword(length, lowerChecked, uperChecked, numberChecked, specialChecked) {
+
+}
+
+
+
+ passwordF.innerText = generatePassword(length, lowerChecked, uperChecked, numberChecked, specialChecked);
+
   
 });
 
