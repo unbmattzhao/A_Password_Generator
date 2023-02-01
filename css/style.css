@@ -54,11 +54,16 @@ header {
   min-height: 100px;
 }
 
+.options {
+  border: 0px;
+  border-radius: 10px;
+  background-color: rgb(190, 112, 112);
+}
+
 body div .form {
   /* all: unset; */
   display: grid;
   grid-template-columns: auto auto;
-  border: 1px solid rgb(129, 130, 131);
   row-gap: 1rem;
   column-gap: 3rem;
   justify-content: center;

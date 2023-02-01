@@ -25,31 +25,35 @@
             aria-label="Generated Password"
           ></textarea>
           
-          <form class="form" action="">              
-            <label for="charRange">Number of Characters</label>
-            <input type="number" min="8" max="128" value="8" id="charNumber">
-              
-              
-            <label for="lowerCase">Include Lowercase</label>
-            <input type="checkbox" name="" id="lowerCase">
+          <!--Dialog is so much better than a prompt function https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog  -->
+          <dialog class="options" id="criteria">
+            <form class="form" action="">              
+              <label for="charRange">Number of Characters</label>
+              <input type="number" min="8" max="128" value="8" id="charNumber">
+                
+              <label for="lowerCase">Include Lowercase</label>
+              <input type="checkbox" name="" id="lowerCase">
 
-            <label for="upperCase">Include Uppercase</label>
-            <input type="checkbox" name="" id="upperCase">
+              <label for="upperCase">Include Uppercase</label>
+              <input type="checkbox" name="" id="upperCase">
 
-            <label for="numbers">Include Numbers</label>
-            <input type="checkbox" name="" id="numbers">
+              <label for="numbers">Include Numbers</label>
+              <input type="checkbox" name="" id="numbers">
 
-            <label for="specials">Include Special Characters</label>
-            <input type="checkbox" name="" id="specials">                      
-          </form>      
-
+              <label for="specials">Include Special Characters</label>
+              <input type="checkbox" name="" id="specials">                      
+            </form>      
+            <div>
+              <button id="closeOptions" class="btn">Generate Password</button>;
+            </div>
+        </dialog>
 
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <button id="openOptions" class="btn">Generate Password</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
   </body>
 </html>
