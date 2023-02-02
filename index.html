@@ -27,10 +27,10 @@
           
           <!--Dialog is so much better than a prompt https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog  -->
           <dialog class="options" id="criteria">
-            <form class="form" action="">   
+            <form id="pswArea" class="form" action="">   
 
-              <label for="charNumber">Number of Characters</label>
-              <input type="number" min="8" max="128" value="8" id="charNumber">
+              <label for="charLength">Number of Characters</label>
+              <input type="number" min="8" max="128" value="8" id="charLength">
                 
               <label for="lowerCase">Include Lowercase</label>
               <input type="checkbox" name="" id="lowerCase">
@@ -43,16 +43,15 @@
 
               <label for="specials">Include Special Characters</label>
               <input type="checkbox" name="" id="specials"> 
+             
+              <button type="submit" id="closeOptions" class="btn">Generate Password</button>
               
-            </form>      
-            <div>
-              <button id="closeOptions" class="btn">Generate Password</button>
-            </div>
-        </dialog>
+            </form>  
+          </dialog>
 
         </div>
         <div class="card-footer">
-          <button id="openOptions" class="btn">Generate Password</button>
+          <button id="openOptions" class="btn">Start Generating</button>
         </div>
       </div>
     </div>

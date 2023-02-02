@@ -68,7 +68,8 @@ body div .form {
   column-gap: 3rem;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem;
+
 }
 
 .card-footer {
@@ -105,9 +106,7 @@ body div .form {
   cursor: pointer;
 }
 
-#closeOptions :hover{
-  Plese Select at least One Option
-}
+
 
 button[disabled] {
   cursor: default;
