@@ -25,13 +25,12 @@
             aria-label="Generated Password"
           ></textarea>
           
-          <!--Dialog is so much better than a prompt function https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog  -->
-
+          <!--Dialog is so much better than a prompt https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog  -->
           <dialog class="options" id="criteria">
             <form class="form" action="">   
 
               <label for="charNumber">Number of Characters</label>
-              <input type="number" min="8" max="128" value="50" id="charNumber">
+              <input type="number" min="8" max="128" value="8" id="charNumber">
                 
               <label for="lowerCase">Include Lowercase</label>
               <input type="checkbox" name="" id="lowerCase">
@@ -46,7 +45,7 @@
               <input type="checkbox" name="" id="specials">                      
             </form>      
             <div>
-              <button id="closeOptions" class="btn">Generate Password</button>;
+              <button id="closeOptions" class="btn">Generate Password</button>
             </div>
         </dialog>
 

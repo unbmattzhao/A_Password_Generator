@@ -1,17 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
 
-// Generate related strings with functions, The ASCII Character Set: https://www.w3schools.com/charsets/ref_html_ascii.asp 
+
+// Generate related random characters with functions, The ASCII Character Set: https://www.w3schools.com/charsets/ref_html_ascii.asp 
 
 const numberGenerator = function (){
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
@@ -30,12 +23,12 @@ const specialCharGenerator = function (){
   return specialChar[Math.floor(Math.random() * specialChar.length)];
 };
 
-// define an object to store all the random strings
-const randomStrings = {
-  numberOb: numberGenerator,
-  lowerCaseCharOb: lowerCaseGenerator,
-  UpperCaseCharOb: UpperCaseGenerator,
-  specialOb: specialCharGenerator
+// define an object to store all the random characters
+const randomCharacterSet = { 
+  lowerChar: lowerCaseGenerator,
+  upperChar: UpperCaseGenerator,
+  numberChar: numberGenerator,
+  specialChar: specialCharGenerator
 };
 
 // Select-options page and add open/close actions;
@@ -45,48 +38,96 @@ const openOptions = document.querySelector('#openOptions');
 const closeOptions = document.querySelector('#closeOptions');
 
 // A click on the bottom botton opens the options page;
+
 openOptions.addEventListener('click', function() {
   options.showModal();
 });
+
 // After selecting the options, click the button to generate a password;
+
 closeOptions.addEventListener('click', function(){
   options.close();
 });
 
-// get all the related elements from the document, DOM operation.
 
-const passwordF = document.getElementById('password');
-const charNumberF = document.getElementById('charNumber');
-const lowerCaseF = document.getElementById('lowerCase');
-const upperCaseF = document.getElementById('upperCase');
-const numbersE = document.getElementById('numbers');
-const specialsF = document.getElementById('specials');
+// get the password text area 
+const passwordELT = document.getElementById('password');
+
+// Length of the password
+const charNumberELT = document.getElementById('charNumber');
+
+// other options to add to the password
+const lowerCaseELT = document.getElementById('lowerCase');
+const upperCaseELT = document.getElementById('upperCase');
+const numbersELT = document.getElementById('numbers');
+const specialsELT = document.getElementById('specials');
+
+// Get the element button which closes the dialog and generates the password at the same time
 const generatePwE = document.getElementById('closeOptions');
 
 
-// Get user inputs and store them into variables.
-generatePwE.addEventListener('click', function() {
-  const length = +charNumberF.value;
-  const lowerChecked = lowerCaseF.checked;
-  const uperChecked = upperCaseF.checked;
-  const numberChecked = numbersE.checked;
-  const specialChecked = specialsF.checked;
-
-// Generate password with the user's inputs using a function.
-// Limit the length of the password string as per the user's seclection
+// Get user inputs and generate pwd with a function, and put into the password text area.  
 
 
-function generatePassword(length, lowerChecked, uperChecked, numberChecked, specialChecked) {
+// // // Get the user's input, this will be submitted after the user clicks the generate password button, so they should be moved into the function happens after the submit event.
+//   const length = +charNumberELT.value;
+//   const numberChecked = numbersELT.checked;
+//   const lowerChecked = lowerCaseELT.checked;
+//   const uperChecked = upperCaseELT.checked;
+//   const specialChecked = specialsELT.checked;
 
-}
+
+// const generatePassword = function(length, numberChecked, lowerChecked, uperChecked, specialChecked) 
+
+
+  generatePwE.addEventListener('submit', function userInputData(){
+     
+    const length = +charNumberELT.value;
+
+    const lowerChecked = lowerCaseELT.checked;
+    const uperChecked = upperCaseELT.checked;
+    const numberChecked = numbersELT.checked;
+    const specialChecked = specialsELT.checked;
+
+    // const password =  generatPassword (length, lowerChecked, uperChecked, numberChecked, specialChecked)
+
+    for(let i = 0; i < length; i++) {
+      const randoms = {
+        // "? to take the place of "if"  https://javascript.info/ifelse, this looks good
+        number: (numberChecked) ? numberGenerator() : "",
+        lower: (lowerChecked ? lowerCaseGenerator : ""),
+        upper: (uperChecked ? UpperCaseGenerator : ""),
+        special: (specialChecked ? specialCharGenerator : ""),
+      }
+
+      var numberO = randoms.number;
+      var lowerO = randoms.lower;
+      var uperO = randoms.lower;
+      var specialO = randoms.special; 
+      var string = (numberO+lowerO+uperO+specialO)
+    return string;
+  }
+
+  console.log(userInputData());
+
+})
 
 
 
- passwordF.innerText = generatePassword(length, lowerChecked, uperChecked, numberChecked, specialChecked);
 
+
+
+
+// //============
+// var charactersToSelect = [];
+
+ 
   
-});
+//   console.log(numberGenerator());
+
+//   numberGenerator();
+  
 
 
 
-// console.log(password);
+  // const passwordtext = [];
