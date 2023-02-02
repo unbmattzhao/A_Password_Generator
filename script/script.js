@@ -1,36 +1,3 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-
-
-
-// Generate related random characters with functions, The ASCII Character Set: https://www.w3schools.com/charsets/ref_html_ascii.asp 
-
-const numberGenerator = function (){
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-};
-
-const lowerCaseGenerator = function (){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-};
-
-const UpperCaseGenerator = function (){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-};
-
-const specialCharGenerator = function (){ 
-  const specialChar = '!”#$%&’()*+,-./:;<=>?@[\]^_`{|}~'; 
-  return specialChar[Math.floor(Math.random() * specialChar.length)];
-};
-
-// define an object to store all the random characters
-const randomCharacterSet = { 
-  lowerChar: lowerCaseGenerator,
-  upperChar: UpperCaseGenerator,
-  numberChar: numberGenerator,
-  specialChar: specialCharGenerator
-};
-
 // Select-options page and add open/close actions;
 const options = document.querySelector('.options');
 
@@ -50,84 +17,78 @@ closeOptions.addEventListener('click', function(){
 });
 
 
-// get the password text area 
-const passwordELT = document.getElementById('password');
-
-// Length of the password
+// Length data of the password
 const charNumberELT = document.getElementById('charNumber');
 
-// other options to add to the password
+// get elments for options to add to the password
+const numbersELT = document.getElementById('numbers');
 const lowerCaseELT = document.getElementById('lowerCase');
 const upperCaseELT = document.getElementById('upperCase');
-const numbersELT = document.getElementById('numbers');
 const specialsELT = document.getElementById('specials');
 
-// Get the element button which closes the dialog and generates the password at the same time
-const generatePwE = document.getElementById('closeOptions');
+// get the password text area 
+const passwordArea = document.getElementById('password');
+
+// get the passport generator buttom
+
+const passwordBtn = document.getElementById('closeOptions');
 
 
-// Get user inputs and generate pwd with a function, and put into the password text area.  
+// Generate character array
+var numberCodes = []; 
+var lowerCaserCodes = [];
+var upperCaserCodes = [];
+var specialerCodes = [];
+
+numberCodes = ArrayNumtoChar(48, 57);
+lowerCaserCodes = ArrayNumtoChar(65, 90);
+upperCaserCodes = ArrayNumtoChar(97, 122);
+specialerCodes = ArrayNumtoChar(33, 47).concat(ArrayNumtoChar(58, 64)).concat(ArrayNumtoChar(91, 96)).concat(ArrayNumtoChar(123, 126));
 
 
-// // // Get the user's input, this will be submitted after the user clicks the generate password button, so they should be moved into the function happens after the submit event.
-//   const length = +charNumberELT.value;
-//   const numberChecked = numbersELT.checked;
-//   const lowerChecked = lowerCaseELT.checked;
-//   const uperChecked = upperCaseELT.checked;
-//   const specialChecked = specialsELT.checked;
+// Array function to get characters. The ASCII Character Set: https://www.w3schools.com/charsets/ref_html_ascii.asp 
 
-
-// const generatePassword = function(length, numberChecked, lowerChecked, uperChecked, specialChecked) 
-
-
-  generatePwE.addEventListener('submit', function userInputData(){
-     
-    const length = +charNumberELT.value;
-
-    const lowerChecked = lowerCaseELT.checked;
-    const uperChecked = upperCaseELT.checked;
-    const numberChecked = numbersELT.checked;
-    const specialChecked = specialsELT.checked;
-
-    // const password =  generatPassword (length, lowerChecked, uperChecked, numberChecked, specialChecked)
-
-    for(let i = 0; i < length; i++) {
-      const randoms = {
-        // "? to take the place of "if"  https://javascript.info/ifelse, this looks good
-        number: (numberChecked) ? numberGenerator() : "",
-        lower: (lowerChecked ? lowerCaseGenerator : ""),
-        upper: (uperChecked ? UpperCaseGenerator : ""),
-        special: (specialChecked ? specialCharGenerator : ""),
-      }
-
-      var numberO = randoms.number;
-      var lowerO = randoms.lower;
-      var uperO = randoms.lower;
-      var specialO = randoms.special; 
-      var string = (numberO+lowerO+uperO+specialO)
-    return string;
+function ArrayNumtoChar (start, end) {
+  let array = [];
+  for (let i = start; i <= end; i++){
+    array.push(i)
+  return array
   }
+}
 
-  console.log(userInputData());
+function generatePassword(numberChecked, lowerChecked, uperChecked, uperChecked, specialChecked) {
+  let passwordCode = [];
+  if (numberChecked) passwordCode = passwordCode.concat(numberCodes);
+  if (lowerChecked) passwordCode = passwordCode.concat(lowerCaserCodes);
+  if (uperChecked) passwordCode = passwordCode.concat(upperCaserCodes);
+  if (specialChecked) passwordCode = passwordCode.concat(specialerCodes); 
 
-})
+const passwordChar = []
+for (let i = 8; i < length; i++){
+  const RandomCharCode = passwordCode[Math.floor(Math.random() * passwordCode.length)];
+
+  passwordChar.push(String.fromCharCode(RandomCharCode))
+
+}
+}
+
+passwordBtn.addEventListener('click', function () {
+  const length = +charNumberELT.value;
+  const numberChecked = numbersELT.checked;
+  const lowerChecked = lowerCaseELT.checked;
+  const uperChecked = upperCaseELT.checked;
+  const specialChecked = specialsELT.checked;
+  if (numberChecked === false && lowerChecked === false && uperChecked === false && specialChecked === false) {
+    alert ("Please Select at least One Option!")
+  }  else{
+  const password = generatePassword(length, numberChecked, lowerChecked, uperChecked,specialChecked);
+  passwordArea.innerText = password;}}
+  )
+
+  // This also works as a reminder to select at least one option, but kind of annoying.
+// document.getElementById("closeOptions").onmouseover = function() {getAlert()};
+// function getAlert(){
+//   alert('Please Select at least One Option!');
+// }
 
 
-
-
-
-
-
-// //============
-// var charactersToSelect = [];
-
- 
-  
-//   console.log(numberGenerator());
-
-//   numberGenerator();
-  
-
-
-
-  // const passwordtext = [];

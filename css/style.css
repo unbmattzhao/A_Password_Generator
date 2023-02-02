@@ -105,6 +105,10 @@ body div .form {
   cursor: pointer;
 }
 
+#closeOptions :hover{
+  Plese Select at least One Option
+}
+
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
