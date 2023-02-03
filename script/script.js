@@ -28,6 +28,8 @@ const specialsELT = document.getElementById('specials');
 
 // get the password text area 
 const pswArea = document.getElementById('pswArea');
+var passwordText = document.querySelector("#password");
+
 
 // get the passport generator buttom
 
@@ -66,7 +68,7 @@ function generatePassword(length,lowerChecked, uperChecked, numberChecked, speci
   if (specialChecked) passwordCode = passwordCode.concat(specialerCodes); 
 
   const passwordChar = [];
-for (let i = 8; i < length; i++){
+for (let i = 0; i < length; i++){
   const RandomCharCode = passwordCode[Math.floor(Math.random() * passwordCode.length)];
   
   passwordChar.push(String.fromCharCode(RandomCharCode))
@@ -75,8 +77,8 @@ for (let i = 8; i < length; i++){
 }
 
 
-pswArea.addEventListener('submit', function() {
-  
+pswArea.addEventListener('submit', function(event) {
+    event.preventDefault();
   const length = charLength.value;
   const lowerChecked = lowerCaseELT.checked;
   const uperChecked = upperCaseELT.checked;
@@ -89,7 +91,8 @@ pswArea.addEventListener('submit', function() {
   else
    {
   const password = generatePassword(length, lowerChecked, uperChecked, numberChecked, specialChecked);
-  passwordArea.innerText = password;
+  passwordText.innerText = password;
+  console.log(password);
 }
 })
 
