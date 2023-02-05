@@ -14,8 +14,8 @@ https://github.com/unbmattzhao/Passgen-w3/
 
 
 ![The App screenshots](./img/screenshot01.png "Password Generator")
-![The App screenshots](./img/screenshot02.png)
-![The App screenshots](./img/screenshot03.png)
+![The App screenshots](./img/screenshot02.png "Password Generator")
+![The App screenshots](./img/screenshot03.png "Password Generator")
 
 
 # Function
